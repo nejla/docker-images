@@ -1,13 +1,13 @@
-# Base image for building stack-based Haskell projects
+# Base image for building Stack-based Haskell projects
 
 This image is based in Debian and comes with the following packages installed:
 
-* libicu (dependency of text library)
-* libpq (dependency of postgres libraries)
-* libtinfo-dev (dependency of stack)
+* libicu (dependency of text)
+* libpq (dependency of PostgreSQL libraries)
+* libtinfo-dev (dependency of Stack)
 * msmtp-mta (for email handling)
-* netbase (dependency of stack)
-* xz-utils (dependency of stack)
+* netbase (dependency of Stack)
+* xz-utils (dependency of Stack)
 * msmtp-mta (email handling)
 * locales
 * git

@@ -2,7 +2,7 @@ FROM debian:jessie
 
 RUN export DEBIAN_FRONTEND=noninteractive && \
     apt-get update && \
-    apt-get install -y --no-install-recommends  \
+    apt-get install -y --no-install-recommends \
       build-essential \
       ca-certificates \
       curl \
@@ -12,8 +12,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
       msmtp-mta \
       netbase  \
       netcat \
-      xz-utils \
-        && \
+      xz-utils && \
     rm -rf /var/lib/apt/lists/* && \
     localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8
 
