@@ -1,3 +1,4 @@
-# Image for running deployments in CI
+# Image for running Nejla AB deployments
 
-This image comes with tools necessary to trigger deployments from gitlab-ci
+This image comes with the tools necessary to trigger Nejla AB deployments from
+GitLab CI.

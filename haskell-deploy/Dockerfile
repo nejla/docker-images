@@ -10,7 +10,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
       libpq-dev \
       locales \
       msmtp-mta \
-      netbase  \
+      netbase \
       netcat \
       xz-utils && \
     rm -rf /var/lib/apt/lists/* && \
