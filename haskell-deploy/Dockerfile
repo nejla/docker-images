@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:xenial
 
 RUN export DEBIAN_FRONTEND=noninteractive && \
     apt-get update && \

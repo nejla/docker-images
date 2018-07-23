@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu:xenial
 
 RUN export DEBIAN_FRONTEND=noninteractive && \
     apt-get update && \
@@ -11,7 +11,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
       software-properties-common && \
     apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 \
       --recv-keys 575159689BEFB442 && \
-    echo 'deb https://download.fpcomplete.com/ubuntu xenial main' \
+    echo "deb https://download.fpcomplete.com/ubuntu $(lsb_release -cs) main" \
       > /etc/apt/sources.list.d/fpco.list && \
     apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 \
       --recv-keys 9DC858229FC7DD38854AE2D88D81803C0EBFCD88 && \
