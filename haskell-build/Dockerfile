@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM ubuntu
 
 RUN export DEBIAN_FRONTEND=noninteractive && \
     apt-get update && \
@@ -11,11 +11,11 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
       software-properties-common && \
     apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 \
       --recv-keys 575159689BEFB442 && \
-    echo 'deb https://download.fpcomplete.com/debian jessie main' \
+    echo 'deb https://download.fpcomplete.com/ubuntu xenial main' \
       > /etc/apt/sources.list.d/fpco.list && \
     apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 \
       --recv-keys 9DC858229FC7DD38854AE2D88D81803C0EBFCD88 && \
-    add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable" && \
+    add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" && \
     apt-get update && \
     apt-get install -y --no-install-recommends \
       ca-certificates \
