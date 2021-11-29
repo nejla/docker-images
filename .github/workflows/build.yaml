@@ -24,6 +24,8 @@ jobs:
         uses: docker/metadata-action@v3
         with:
           images: nejla/ci-deploy
+          flavor: |
+            latest=${{ github.ref == 'refs/heads/master' }}
           tags: |
             type=sha,format=long
             type=ref,event=branch
@@ -58,6 +60,8 @@ jobs:
         uses: docker/metadata-action@v3
         with:
           images: nejla/haskell-build
+          flavor: |
+            latest=${{ github.ref == 'refs/heads/master' }}
           tags: |
             type=sha,format=long
             type=ref,event=branch
