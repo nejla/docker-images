@@ -1,6 +1,6 @@
 FROM ubuntu:focal
 
-ENV STACK_VERSION=2.5.1
+ENV STACK_VERSION=2.7.5
 
 
 RUN export DEBIAN_FRONTEND=noninteractive && \
