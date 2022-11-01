@@ -23,10 +23,12 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
       libicu-dev \
       libpq-dev \
       libtinfo-dev \
+      libxml2-dev \
       locales \
       make \
       msmtp-mta \
       netbase \
+      pkg-config \
       ruby-mustache \
       ssh \
       xz-utils \
