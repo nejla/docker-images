@@ -1,4 +1,4 @@
-# Base image for building Stack-based Haskell projects
+# Base image for building nejla projects
 
 This image is based in Debian and comes with the following packages installed:
 
@@ -11,6 +11,7 @@ This image is based in Debian and comes with the following packages installed:
 * msmtp-mta (email handling)
 * locales
 * git
-* stack
+* stack (for building haskell projects)
 * docker-ce
 * ssh
+* rustup (for building rust projects)
