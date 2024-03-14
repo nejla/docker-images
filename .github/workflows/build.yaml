@@ -9,8 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
+    # Secrets can't be references in conditionals, so we copy it into an
+    # environment variable
+    env:
+      docker_username: ${{ secrets.DOCKERHUB_USERNAME }}
     steps:
       - name: Login to DockerHub
+        if: ${{ env.docker_username != '' }}
         uses: docker/login-action@v1
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
@@ -38,18 +43,21 @@ jobs:
         with:
           context: ci-deploy
           file: ci-deploy/Dockerfile
-          push: true
+          push: ${{ env.docker_username != '' }}
           tags: ${{ steps.docker-meta.outputs.tags }}
           labels: ${{ steps.docker-meta.outputs.labels }}
 
-  build-haskell-build:
-    name: "Build and push haskell-build"
+  build-nejla-build:
+    name: "Build and push nejla-build"
     runs-on: ubuntu-latest
+    env:
+      docker_username: ${{ secrets.DOCKERHUB_USERNAME }}
     steps:
       - name: Clone project
         uses: actions/checkout@v2
 
       - name: Login to DockerHub
+        if: ${{ env.docker_username != '' }}
         uses: docker/login-action@v1
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
@@ -59,7 +67,7 @@ jobs:
         id: docker-meta
         uses: docker/metadata-action@v3
         with:
-          images: nejla/haskell-build
+          images: nejla/nejla-build
           flavor: |
             latest=${{ github.ref == 'refs/heads/master' }}
           tags: |
@@ -72,8 +80,8 @@ jobs:
       - name: Build and push image
         uses: docker/build-push-action@v2
         with:
-          context: haskell-build
-          file: haskell-build/Dockerfile
-          push: true
+          context: nejla-build
+          file: nejla-build/Dockerfile
+          push: ${{ env.docker_username != '' }}
           tags: ${{ steps.docker-meta.outputs.tags }}
           labels: ${{ steps.docker-meta.outputs.labels }}

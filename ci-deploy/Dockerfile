@@ -1,4 +1,4 @@
-FROM debian
+FROM debian:bookworm
 
 RUN export DEBIAN_FRONTEND=noninteractive && \
     apt-get update && \
@@ -8,7 +8,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
       locales \
       make \
       netbase \
-      netcat \
+      netcat-openbsd \
       openssh-client \
       xz-utils && \
     rm -rf /var/lib/apt/lists/* && \
