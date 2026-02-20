@@ -1,12 +1,12 @@
-FROM ubuntu:jammy
+FROM ubuntu:noble@sha256:cd1dba651b3080c3686ecf4e3c4220f026b521fb76978881737d24f200828b2b
 
-ARG STACK_VERSION=2.15.3
+ARG STACK_VERSION=3.9.1
 ARG STACK_URL="https://github.com/commercialhaskell/stack/releases/download/v${STACK_VERSION}/stack-${STACK_VERSION}-linux-x86_64.tar.gz"
-ARG STACK_SHA256="25ccba5988611e51fed8904acb97f6149df6dd91b72616a8653bc52260820a41"
-ARG RUSTC_VERSION=1.75.0
+ARG STACK_SHA256="c4816581c445f6e4d43bf7ce6064b0d58d136e49c45e6336d612c4d8eaaedd11"
+ARG RUSTC_VERSION=1.87.0
 ARG RUST_ARCH='x86_64-unknown-linux-gnu'
-ARG RUSTUP_VER="1.26.0"
-ARG RUSTUP_SHA256='0b2f6c8f85a3d02fde2efc0ced4657869d73fccfce59defb4e8d29233116e6db'
+ARG RUSTUP_VER="1.28.2"
+ARG RUSTUP_SHA256='20a06e644b0d9bd2fbdbfd52d42540bdde820ea7df86e92e533c073da0cdd43c'
 ARG RUSTUP_URL="https://static.rust-lang.org/rustup/archive/${RUSTUP_VER}/${RUST_ARCH}/rustup-init"
 
 ENV RUSTUP_HOME=/usr/local/rustup \

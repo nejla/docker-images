@@ -1,0 +1,20 @@
+version: '3'
+
+tasks:
+  nejla-build:
+    vars:
+      image: nejla/haskell-build
+    dir: nejla-build
+    sources:
+      - Dockerfile
+    method: timestamp
+    cmds:
+      - docker build -t "{{.image}}" .
+    status:
+      - test $(docker inspect {{.image}}:latest --format '{{ "{{.Metadata.LastTagTime.Unix}}"}}') -gt '{{.TIMESTAMP.Unix}}'
+  update:
+    desc: Update version pins
+    cmds:
+      - bash ./update-pins.sh
+  build:
+    deps: [nejla-build]
